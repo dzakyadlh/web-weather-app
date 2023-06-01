@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./reset.css";
+import "./App.css";
+
+import Home from "./pages/home";
+
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+      </Routes>
     </div>
   );
 }
