@@ -1,11 +1,17 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f6f1f1;
+  background: #ee9ca7;
+  background: -webkit-linear-gradient(#ffdde1, #ee9ca7);
+  background: linear-gradient(#ffdde1, #ee9ca7);
 }
 
 .main-container {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 .scroll-container {
