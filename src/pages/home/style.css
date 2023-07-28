@@ -22,7 +22,7 @@ body {
 
 .current-city {
   font-size: 36px;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .current-temp {
@@ -32,6 +32,7 @@ body {
 
 .current-weather-id {
   font-size: 20px;
+  color: #ffffff;
 }
 
 .forecast-and-nav {
@@ -105,4 +106,44 @@ body {
 
 .forecast-temp {
   font-size: 20px;
+}
+
+.forecast-card-current {
+  background-color: #f3f3f3;
+}
+
+.forecast-time-current,
+.forecast-icon-current,
+.forecast-temp-current {
+  color: #6bbbbfb3;
+}
+
+.menu-nav {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-icon {
+  font-size: 25px;
+}
+
+.nav-location {
+  background-color: #f3f3f3;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 2px #000000;
+}
+
+.nav-location-icon {
+  font-size: 40px;
+  color: #6bbbbfb3;
 }
