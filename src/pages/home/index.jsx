@@ -4,9 +4,14 @@ import Search from "../../components/search";
 import CurrentWeather from "../../components/currentWeather";
 import Forecast from "../../components/forecast";
 import { WEATHER_API_KEY, weatherAPIURL } from "../../api";
-import Sunny from "../../assets/icons/sun.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWind, faDroplet } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGear,
+  faLocationDot,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
+import SunnyIcon from "../../assets/icons/Sun_fill.svg";
+import SunnyIconCurrent from "../../assets/icons/Sun_fill_current.png";
 import "./style.css";
 
 const Home = () => {
@@ -25,19 +30,67 @@ const Home = () => {
     );
   };
 
-  // Promise.all([currentWeatherFetch, forecastFetch])
-  //   .then(async (res) => {
-  //     const weatherResponse = await response[0].json();
-  //     const forecastResponse = await response[1].json();
-
-  //     setCurrentWeather({ city: searchData.label, ...weatherResponse });
-  //     setForecast({ city: searchData.label, ...forecastResponse });
-  //   })
-  //   .catch(console.log);
-
   return (
     <div className="main-container">
-      <Search onSearchChange={handleOnSearchChange} />
+      <div className="current-weather">
+        <p className="current-city">Surabaya</p>
+        <p className="current-temp">26&deg;</p>
+        <p className="current-weather-id">Sunny</p>
+      </div>
+      <div className="forecast-and-nav">
+        <div className="forecast-nav">
+          <div className="dragger"></div>
+          <div className="forecast-types">
+            <p className="forecast-type">Hourly Forecast</p>
+            <p className="forecast-type">Weekly Forecast</p>
+          </div>
+        </div>
+        <div className="forecast">
+          <div className="forecast-card">
+            <p className="forecast-time">11.00</p>
+            <img src={SunnyIcon} className="forecast-icon" />
+            <p className="forecast-temp">24&deg;</p>
+          </div>
+          <div className="forecast-card forecast-card-current">
+            <p className="forecast-time forecast-time-current">11.00</p>
+            <img
+              src={SunnyIconCurrent}
+              className="forecast-icon forecast-icon-current"
+            />
+            <p className="forecast-temp forecast-temp-current">24&deg;</p>
+          </div>
+          <div className="forecast-card">
+            <p className="forecast-time">11.00</p>
+            <img src={SunnyIcon} className="forecast-icon" />
+            <p className="forecast-temp">24&deg;</p>
+          </div>
+          <div className="forecast-card">
+            <p className="forecast-time">11.00</p>
+            <img src={SunnyIcon} className="forecast-icon" />
+            <p className="forecast-temp">24&deg;</p>
+          </div>
+          <div className="forecast-card">
+            <p className="forecast-time">11.00</p>
+            <img src={SunnyIcon} className="forecast-icon" />
+            <p className="forecast-temp">24&deg;</p>
+          </div>
+        </div>
+      </div>
+      <div className="menu-nav">
+        <FontAwesomeIcon icon={faStar} className="nav-icon" />
+        <div className="nav-location">
+          <FontAwesomeIcon icon={faLocationDot} className="nav-location-icon" />
+        </div>
+        <FontAwesomeIcon icon={faGear} className="nav-icon" />
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+
+{
+  /* <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
       <div className="current-weather">
@@ -87,9 +140,5 @@ const Home = () => {
           </h3>
           <h4 className="forecast-day">Thursday</h4>
         </div>
-      </div>
-    </div>
-  );
-};
-
-export default Home;
+      </div> */
+}

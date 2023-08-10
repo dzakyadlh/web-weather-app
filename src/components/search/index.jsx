@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoAPIOptions, geoAPIURL } from "../../api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faLocationDot,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const loadOptions = (inputValue) => {
     return fetch(
@@ -44,15 +49,31 @@ const Search = ({ onSearchChange }) => {
 
   return (
     <div className="nav-container">
-      <FontAwesomeIcon icon={faLocationDot} className="locationIcon" />
-      <AsyncPaginate
-        placeholder="Search a location"
-        debounceTimeout={600}
-        value={search}
-        onChange={handleChange}
-        loadOptions={loadOptions}
-        styles={searchStyles}
-      />
+      <div
+        className={`search-container ${
+          isSearchOpen ? "search-open" : "search-closed"
+        }`}
+      >
+        <AsyncPaginate
+          placeholder="Search a location"
+          debounceTimeout={600}
+          value={search}
+          onChange={handleChange}
+          loadOptions={loadOptions}
+          styles={searchStyles}
+        />
+      </div>
+      <ul className="nav-buttons">
+        <li className="nav-button">
+          <FontAwesomeIcon icon={faBars} className="nav-icon" />
+        </li>
+        <li
+          className="nav-button"
+          onClick={() => setIsSearchOpen(!isSearchOpen)}
+        >
+          <FontAwesomeIcon icon={faSearch} className="nav-icon" />
+        </li>
+      </ul>
     </div>
   );
 };

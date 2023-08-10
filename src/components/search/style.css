@@ -1,14 +1,47 @@
 .nav-container {
   position: fixed;
-  top: 10px;
-  left: 10px;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  /* display: none; */
+}
+
+.search-container {
+  width: 80%;
+  position: absolute;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s ease-in;
+}
+
+.search-open {
+  display: block;
+}
+
+.search-closed {
+  display: none;
+}
+
+.nav-buttons {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  list-style: none;
 }
 
-.locationIcon {
+.nav-button {
+  list-style: none;
+  cursor: pointer;
+}
+
+.nav-button .nav-icon {
+  color: #f3f3f3;
   font-size: 1.5em;
-  margin-right: 10px;
-  color: black;
 }
