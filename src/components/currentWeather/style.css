@@ -1,0 +1,45 @@
+.current-weather-container {
+  display: flex;
+  width: 100vw;
+  height: 400px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+.current-weather-icon {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-weather-icon .icon {
+  font-size: 300px;
+}
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.current-weather > * {
+  margin-bottom: 10px;
+}
+
+.current-weather-temp {
+  font-size: 96px;
+  font-weight: 500;
+}
+
+.current-weather-status {
+  font-size: 64px;
+  font-weight: 500;
+}
+
+.current-weather-date {
+  font-size: 24px;
+  font-weight: 400;
+}

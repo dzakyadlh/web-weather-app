@@ -3,10 +3,10 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { geoAPIOptions, geoAPIURL } from "../../api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBars,
+  faChevronRight,
   faLocationDot,
-  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import "../../reset.css";
 import "./style.css";
 
 const Search = ({ onSearchChange }) => {
@@ -34,47 +34,72 @@ const Search = ({ onSearchChange }) => {
 
   const handleChange = (searchData) => {
     setSearch(searchData);
+    setIsSearchOpen(false);
     onSearchChange(searchData);
   };
 
   const searchStyles = {
     control: (provided, state) => ({
       ...provided,
-      borderRadius: "25px",
+      border: "none",
+      backgroundColor: "transparent",
+    }),
+    input: (provided, state) => ({
+      ...provided,
+      color: "#f3f3f3",
+      border: "none",
     }),
     option: (provided, state) => ({
       ...provided,
+      backgroundColor: state.isFocused ? "rgba(0, 0, 0, 0.3)" : "transparent",
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      backgroundColor: "transparent",
+      border: "none",
+      boxShadow: "0",
     }),
   };
 
   return (
-    <div className="nav-container">
-      <div
-        className={`search-container ${
-          isSearchOpen ? "search-open" : "search-closed"
-        }`}
-      >
-        <AsyncPaginate
-          placeholder="Search a location"
-          debounceTimeout={600}
-          value={search}
-          onChange={handleChange}
-          loadOptions={loadOptions}
-          styles={searchStyles}
-        />
-      </div>
-      <ul className="nav-buttons">
-        <li className="nav-button">
-          <FontAwesomeIcon icon={faBars} className="nav-icon" />
+    <nav className="nav">
+      <ul className="nav-list">
+        <li className="nav-part">
+          <FontAwesomeIcon icon={faLocationDot} className="nav-icon" />
         </li>
         <li
-          className="nav-button"
+          className={`nav-part search-box ${
+            isSearchOpen ? "search-open" : "search-closed"
+          }`}
+        >
+          <AsyncPaginate
+            placeholder="Search a location"
+            debounceTimeout={600}
+            value={search}
+            onChange={handleChange}
+            loadOptions={loadOptions}
+            styles={searchStyles}
+          />
+        </li>
+        <li
+          className={`nav-part search-value ${
+            isSearchOpen ? "search-value-hidden" : "search-value-visible"
+          }`}
+        >
+          {search ? (
+            <div className="value">{search.label}</div>
+          ) : (
+            <div className="value">Search a location</div>
+          )}
+        </li>
+        <li
+          className="nav-part nav-button"
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         >
-          <FontAwesomeIcon icon={faSearch} className="nav-icon" />
+          <FontAwesomeIcon icon={faChevronRight} className="nav-icon" />
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 
