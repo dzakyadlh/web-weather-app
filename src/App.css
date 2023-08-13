@@ -12,6 +12,6 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  padding-top: 5vh;
   box-sizing: border-box;
 }

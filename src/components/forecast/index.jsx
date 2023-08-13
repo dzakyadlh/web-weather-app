@@ -1,4 +1,3 @@
-import ForecastCard from "./forecastCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClock,
@@ -7,16 +6,50 @@ import {
   faInfoCircle,
   faSun,
   faWind,
+  faCloudMoon,
+  faMoon,
+  faCloudMoonRain,
+  faCloudSun,
+  faCloudSunRain,
+  faSnowflake,
 } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
-const Forecast = () => {
+const daysInWeek = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
+const Forecast = ({ weatherData, forecastData }) => {
+  const windDirection = (degree) => {
+    if (degree >= 316 && degree <= 45) return "North";
+    else if (degree >= 46 && degree <= 135) return "East";
+    else if (degree >= 136 && degree <= 215) return "South";
+    else if (degree >= 216 && degree <= 315) return "West";
+  };
+
+  const currentDay = new Date().getDay();
+  const forecastDays = daysInWeek
+    .slice(currentDay, daysInWeek.length)
+    .concat(daysInWeek.slice(0, currentDay))
+    .concat(daysInWeek.slice(currentDay, daysInWeek.length))
+    .concat(daysInWeek.slice(0, currentDay));
+
+  console.log(forecastDays);
+
   return (
     <div className="forecast-container">
-      <section className="hourly-forecast">
-        <header>Hourly Forecast</header>
-        <div className="hourly-forecast-cards">
-          <ForecastCard />
+      <section className="daily-forecast">
+        <header>Daily Forecast</header>
+        <div className="daily-forecast-cards">
+          {forecastData.forecastResponse.list
+            .splice(0, 14)
+            .map((item, index) => (
+              <div className="forecast-card" key={index}>
+                <div className="forecast-card-time">{forecastDays[index]}</div>
+                <FontAwesomeIcon icon={faMoon} className="forecast-card-icon" />
+                <div className="forecast-card-temp">
+                  {Math.round(item.main.temp)}&deg;
+                </div>
+              </div>
+            ))}
         </div>
       </section>
       <section className="weekly-forecast">
@@ -36,30 +69,45 @@ const Forecast = () => {
         <div className="current-forecast-conditions">
           <header>Air Conditions</header>
           <div className="condition">
+            <FontAwesomeIcon icon={faInfoCircle} className="condition-icon" />
+            <div className="condition-name">Feels like</div>
+            <div className="condition-value">
+              {weatherData.main.feels_like}&deg;
+            </div>
+          </div>
+          <div className="condition">
             <FontAwesomeIcon icon={faDroplet} className="condition-icon" />
             <div className="condition-name">Relative Humidity</div>
-            <div className="condition-value">40%</div>
+            <div className="condition-value">
+              {weatherData.main.humidity}
+              <span>%</span>
+            </div>
           </div>
           <div className="condition">
             <FontAwesomeIcon icon={faSun} className="condition-icon" />
-            <div className="condition-name">UV Index</div>
-            <div className="condition-value">3</div>
+            <div className="condition-name">Pressure</div>
+            <div className="condition-value">
+              {weatherData.main.pressure} hPa
+            </div>
           </div>
           <div className="condition">
             <FontAwesomeIcon icon={faWind} className="condition-icon" />
             <div className="condition-name">Wind Speed</div>
-            <div className="condition-value">5 km/h to East</div>
+            <div className="condition-value">
+              <span>{weatherData.wind.speed} m/s</span> to{" "}
+              <span>{windDirection(weatherData.wind.deg)}</span>
+            </div>
           </div>
           <div className="condition">
             <FontAwesomeIcon icon={faCloudRain} className="condition-icon" />
             <div className="condition-name">Rainfall</div>
             <div className="condition-value">1.8 mm</div>
           </div>
-          <div className="condition">
+          {/* <div className="condition">
             <FontAwesomeIcon icon={faInfoCircle} className="condition-icon" />
             <div className="condition-name">Recommendation</div>
             <div className="condition-value">Bring an umbrella</div>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

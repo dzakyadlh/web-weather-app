@@ -1,7 +1,7 @@
 .current-weather-container {
   display: flex;
   width: 100vw;
-  height: 400px;
+  height: 40vh;
   box-sizing: border-box;
 }
 

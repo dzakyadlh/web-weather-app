@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
-import { geoAPIOptions, geoAPIURL } from "../../api";
+import { geoAPIOptions, GEO_API_URL } from "../../api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -15,7 +15,7 @@ const Search = ({ onSearchChange }) => {
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `${geoAPIURL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
+      `${GEO_API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
       geoAPIOptions
     )
       .then((response) => response.json())

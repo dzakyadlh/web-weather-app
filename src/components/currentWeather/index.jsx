@@ -26,8 +26,13 @@ const CurrentWeather = ({ data }) => {
         <FontAwesomeIcon icon={faCloudMoon} className="icon" />
       </div>
       <div className="current-weather">
-        <div className="current-weather-temp">26&deg;</div>
-        <div className="current-weather-status">Cloudy</div>
+        <div className="current-weather-temp">
+          {Math.round(data.main.temp)}
+          <span>&deg;</span>
+        </div>
+        <div className="current-weather-status">
+          {data.weather[0].description}
+        </div>
         <div className="current-weather-date">Wednesday, 2 August 2023</div>
       </div>
     </div>
