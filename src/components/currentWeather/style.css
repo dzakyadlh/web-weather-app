@@ -2,7 +2,6 @@
   display: flex;
   width: 100vw;
   height: 400px;
-  border: 1px solid red;
   box-sizing: border-box;
 }
 
@@ -41,5 +40,5 @@
 
 .current-weather-date {
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 300;
 }

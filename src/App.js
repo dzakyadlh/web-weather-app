@@ -40,8 +40,7 @@ function App() {
       <main className="main-container">
         <CurrentWeather />
         <section className="details">
-          <div className="hourly-forecast"></div>
-          <div className="daily-params"></div>
+          <Forecast />
         </section>
       </main>
     </div>
