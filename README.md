@@ -1,4 +1,4 @@
-React Web Weather App
+React Web Weather App (Not Finished Yet, Coming Soon)
 ==
 This project is a web weather app that features current weather and hourly forecasting including the temperature, weather status, and air conditions. This web uses React JS with forecast data from GeoAPI and OpenWeatherAPI.
 
