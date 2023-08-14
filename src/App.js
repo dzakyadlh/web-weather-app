@@ -41,6 +41,9 @@ function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
+  console.log(currentWeather);
+  console.log(forecast);
+
   return (
     <div className="App">
       <Search onSearchChange={handleOnSearchChange} />

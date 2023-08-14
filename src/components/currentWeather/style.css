@@ -1,5 +1,6 @@
 .current-weather-container {
   display: flex;
+  align-items: center;
   width: 100vw;
   height: 40vh;
   box-sizing: border-box;
@@ -14,7 +15,7 @@
 }
 
 .current-weather-icon .icon {
-  font-size: 300px;
+  font-size: 200px;
 }
 
 .current-weather {
@@ -25,7 +26,7 @@
 }
 
 .current-weather > * {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .current-weather-temp {
