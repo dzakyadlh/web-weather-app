@@ -1,3 +1,19 @@
+:root {
+  --background: #121212;
+}
+
+[data-theme="sunny"] {
+  --background: cyan;
+}
+
+[data-theme="rain"] {
+  --background: gray;
+}
+
+[data-theme="snowy"] {
+  --background: magenta;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -8,10 +24,18 @@ body {
 }
 
 .main-container {
-  min-height: 100vh;
+  min-height: 100%;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  padding-top: 5vh;
+  padding-top: 40px;
   box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+    width: 100vw;
+    padding-top: 100px;
+    overflow: hidden;
+  }
 }

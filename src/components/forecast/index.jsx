@@ -117,16 +117,8 @@ const Forecast = ({ weatherData, forecastData }) => {
             ))}
         </div>
       </section>
-      <section className="weekly-forecast">
-        <ul className="weekly-forecast-days">
-          <li className="day">MON</li>
-          <li className="day">TUE</li>
-          <li className="day current-day">WED</li>
-          <li className="day">THU</li>
-          <li className="day">FRI</li>
-          <li className="day">SAT</li>
-          <li className="day">SUN</li>
-        </ul>
+      <section className="forecast-parameters">
+        <div className="current-forecast-city">{weatherData.name}</div>
         <div className="current-forecast-time">
           <FontAwesomeIcon icon={faClock} className="clock-icon" />
           <div className="time">

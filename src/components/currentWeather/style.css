@@ -43,3 +43,33 @@
   font-size: 24px;
   font-weight: 300;
 }
+
+@media (max-width: 1024px) {
+  .current-weather-container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: fit-content;
+  }
+
+  .current-weather-icon {
+    width: 100vw;
+    height: fit-content;
+    margin: 20px 0;
+  }
+
+  .current-weather-icon .icon {
+    font-size: 150px;
+  }
+
+  .current-weather-temp {
+    font-size: 64px;
+  }
+
+  .current-weather-status {
+    font-size: 48px;
+  }
+
+  .current-weather-date {
+    font-size: 20px;
+  }
+}

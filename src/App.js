@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useLocalStorage from "use-local-storage";
 
 import Search from "./components/search";
 import CurrentWeather from "./components/currentWeather";
@@ -10,6 +11,7 @@ import "./App.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 function App() {
+  const [theme, setTheme] = useLocalStorage("theme");
   const location = useLocation();
 
   const [currentWeather, setCurrentWeather] = useState(null);
