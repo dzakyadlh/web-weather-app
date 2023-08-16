@@ -18,13 +18,13 @@ import "../../reset.css";
 import "./style.css";
 
 const daysInWeek = [
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ];
 
 const monthsInYear = [

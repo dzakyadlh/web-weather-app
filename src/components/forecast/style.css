@@ -11,7 +11,7 @@
   width: 1200px;
   height: 500px;
   border-radius: 25px;
-  background-color: #d9d9d999;
+  background-color: #bbbbbb99;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -20,7 +20,7 @@
   width: 580px;
   height: 500px;
   border-radius: 25px;
-  background-color: #d9d9d999;
+  background-color: #bbbbbb99;
 }
 
 .daily-forecast header {
@@ -45,7 +45,7 @@
   align-items: center;
   justify-content: space-around;
   border-radius: 50px;
-  background: linear-gradient(#2c5364, #203a43, #0f2027);
+  background: var(--dailyForecast);
   margin-right: 10px;
 }
 

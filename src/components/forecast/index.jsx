@@ -83,15 +83,18 @@ const Forecast = ({ weatherData, forecastData }) => {
       currentOffsetInMinutes +
       timezoneOffsetInMinutes +
       currentTime.getMinutes();
+
+    if (hour < 0) {
+      hour = 24 + hour;
+    }
     if (minute > 60) {
       hour += minute / 60;
       minute = minute % 60;
     }
-    console.log(currentTime.getHours());
-    console.log(currentOffsetInHours);
-    console.log(timezoneOffsetInHours);
-    console.log(hour);
-    return `${hour.toString().padStart(2, "0")}:${minute
+    if (hour > 24) {
+      hour = hour - 24;
+    }
+    return `${Math.round(hour).toString().padStart(2, "0")}:${Math.round(minute)
       .toString()
       .padStart(2, "0")}`;
   };

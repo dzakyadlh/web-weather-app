@@ -1,26 +1,44 @@
-:root {
-  --background: #121212;
+[data-theme="day"] {
+  /* --background: linear-gradient(#56ccf2, #2f80ed); */
+  --background: url("./assets/images/sunny.jpg");
+  --dailyForecast: linear-gradient(#56ccf2, #2f80ed);
 }
 
-[data-theme="sunny"] {
-  --background: cyan;
+[data-theme="night"] {
+  --background: url("./assets/images/night.jpg");
+  --dailyForecast: linear-gradient(#2c5364, #203a43, #0f2027);
 }
 
 [data-theme="rain"] {
-  --background: gray;
+  --background: url("./assets/images/rain.jpg");
+  --dailyForecast: linear-gradient(#7d7d7d, #242424);
 }
 
 [data-theme="snowy"] {
-  --background: magenta;
+  --background: url("./assets/images/snowy.jpg");
+  --dailyForecast: linear-gradient(#a7bfe8, #6190e8);
 }
 
-body {
+[data-theme="snowyNight"] {
+  --background: url("./assets/images/snowyNight.jpg");
+  --dailyForecast: linear-gradient(#f8cdda, #1d2b64);
+}
+
+[data-theme="foggy"] {
+  --background: url("./assets/images/foggy.jpg");
+  --dailyForecast: linear-gradient(#9de9c6, #2e967c);
+}
+
+.App {
+  min-height: 100vh;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: #f3f3f3;
-  background: linear-gradient(#2c5364, #203a43, #0f2027);
+  background: var(--background);
   background-repeat: no-repeat;
+  background-position: center;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 .main-container {
